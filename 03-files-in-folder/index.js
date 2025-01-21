@@ -17,7 +17,6 @@ fs.readdir(path.join(__dirname, 'secret-folder'), { withFileTypes: true }, (err,
           else {
             const size = stats.size / 1024;
 
-            // Извлекаем имя файла и расширение
             const [name, extension] = file.name.split('.');
             console.log(`${name} - ${extension} - ${size}kb`);
           }
