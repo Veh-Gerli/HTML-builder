@@ -8,7 +8,11 @@ const copyDir = async () => {
   copyDirectory(source, targer);
 };
 
-const copyDirectory = (src, dest) => {
+const copyDirectory = async (src, dest) => {
+
+
+  await fs.promises.rm(dest, { recursive: true, force: true });
+
   fs.mkdir(dest, { recursive: true }, (err) => {
     if (err) {
       console.log(err);

@@ -29,7 +29,10 @@ const writeFile = (filePath, data, callback) => {
 };
 
 // 04
-const copyDirectory = (src, dest) => {
+const copyDirectory = async (src, dest) => {
+
+
+  await fs.promises.rm(dest, { recursive: true, force: true });
   fs.mkdir(dest, { recursive: true }, (err) => {
     if (err) {
       console.log(err);
